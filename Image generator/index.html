@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pixel Perfect</title>
+    <link rel="stylesheet" href ="style.css">
+ </head>
+<body>
+      <header class="header-section">
+            <div class="header-content">
+                  <div class="logo">
+                       <img src="img/Logo.png">
+                       <p class="tagline">Where every image has a story. Create Yours.</p>
+                  </div>
+                  
+                  <form action="search.html"   >
+                    <input type="text" autocomplete="off" name="search" class="search-box" placeholder="Type Here">
+                  <button class="btn" type="submit" >Search</button>
+            </form>
+                  </div>
+      </header>
+
+      <div class="gallery">   
+      </div>
+     <div class="image-popup hide">
+      <button class="close"><img src="img/close.png"></button>
+      <a href="#" class="dbtn">Download</a>
+      <img class="view-img">
+      <button class="controls previous"><img src="img/pre.png"></button>
+      <button class="controls next"><img src="img/nxt.png"></button>
+     </div>
+
+
+<script>
+
+      const key='YTf9gtVRFallhW7E6KsTJivzkx03F5mYxIbgd2y-Oc0'
+      const random_photo_url= `https://api.unsplash.com/photos/random?client_id=${key}&count=50`
+      const gallery= document.querySelector('.gallery')
+      let currentImage=0;
+      let all_images
+
+      const getImages= () => {
+            fetch(random_photo_url)
+            .then(res=> res.json())
+            .then(data=> {
+                 all_images=data
+                 makeImages(all_images)
+            });
+      }
+           const makeImages=(data) => {
+               data.forEach((item,index) => {
+                  
+                  let img = document.createElement('img')
+                  img.src = item.urls.regular;
+                  img.className = 'gallery-img'
+
+                  gallery.appendChild(img)
+
+                  img.addEventListener("click", ()=>{
+                        currentImage = index;
+                        showPopup(item);
+                  })
+               })
+           }
+          const showPopup= (item)=>{
+            let popup = document.querySelector('.image-popup')
+            const downloadBtn = document.querySelector('.dbtn')
+            const closeBtn =  document.querySelector('.close')
+            const img = document.querySelector('.view-img')
+
+            popup.classList.remove('hide');
+            downloadBtn.href= item.links.html;
+            img.src= item.urls.regular;
+
+            closeBtn.addEventListener('click', () => {
+                  popup.classList.add('hide');
+            })
+          } 
+           
+          const previous = document.querySelector('.previous')
+          const next = document.querySelector('.next')
+          previous.addEventListener('click' , ()=>{
+            if(currentImage>0){
+                  currentImage--;
+                  showPopup(all_images[currentImage])
+            }
+          })
+          next.addEventListener('click' , ()=>{
+            if(currentImage<all_images.length-1){
+                  currentImage++;
+                  showPopup(all_images[currentImage])
+            }
+          })
+
+      getImages()
+
+</script>
+
+</body>
+</html>
