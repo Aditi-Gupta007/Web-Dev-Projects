@@ -1,0 +1,64 @@
+.landing{
+    margin: 0px 130px ;
+   margin-top: 120px; 
+}
+.text{
+    font-family: "EB Garamond", serif; 
+    font-weight: 600;
+    color: antiquewhite;
+    font-size: 120px;
+    line-height:  30px;
+} 
+.explore{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+    margin-top: 70px;
+    padding: 0.5px 4px;
+    padding-left: 10px;
+    border-radius: 60px;
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+.explore img{
+    max-width: 40px;
+}
+.explore p{
+  color: rgb(8, 19, 67);
+  font-size: 15px;
+  font-weight: 500;
+}
+.dot-play{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.dots{
+    display: flex;
+    align-items: center;
+    gap : 20px;
+    list-style:none ;
+}
+.dot{
+    width: 15px;
+    height: 15px;
+    background:rgb(255, 235, 199);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.dot.orange{
+    background: rgb(255, 195, 15);
+}
+.play{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.play p{
+    color: antiquewhite;
+    font-size: 19px;
+}
+.play img{
+    max-width: 40px;
+}
