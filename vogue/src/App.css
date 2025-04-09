@@ -1,0 +1,115 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+   padding:0 ;
+   margin: 0;
+   box-sizing: border-box; 
+}
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+h1,h2{
+    font-family: "Playfair Display", serif;
+}
+
+.row{
+    width: 50%;
+}
+
+span{
+    color:crimson;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-shadow:none;
+    
+}
+h2{
+    font-size: 30px;
+    line-height: 35px;
+    margin: 20px 0;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 30px;
+}
+
+.top{
+ margin-top: 80px;   
+}
+
+.home{
+    display: flex;
+}
+
+.left-content, .right-content{
+width: 50%;
+}
+
+.content{
+   padding: 30px; 
+}
+
+.left-content{
+    height: 100vh;
+    position: fixed; 
+    top: 0;
+    color: rgb(243, 249, 255);
+    overflow: hidden;
+    text-shadow:  1px 1px 8px  rgb(70, 60, 60);
+}
+
+.home-img img{
+    position: absolute;
+    left:-0%;
+    top: -0%;
+    height: 110vh !important;
+    z-index: -1;
+background-color: aqua;
+}
+
+.left-content .text{
+    width: 55%;
+    margin-top: 36%;
+}
+.left-content .text h1{
+    font-size: 48px;
+    line-height: 50px;
+} 
+.left-content .text p{
+    margin: 20px 0 5px 0;
+    
+}
+
+.left-content .text2{
+    margin-top: -3%;
+    margin-left: -5%;
+    float: right;
+    text-align: right;
+}
+
+.right-content{
+    padding: 40px;
+    color: black;
+    position: absolute;
+    right: 0;
+  
+    top:-0%;
+}
+
+.img{
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+img {
+    transition:0.5s;
+}
+
+.img img:hover{
+    transform: scale(1.1);
+}
