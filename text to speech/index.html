@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text To Speech Made Easy</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    
+<div class="hero">
+    <h1>Text To Speech <span>Converter</span></h1>
+    <textarea  placeholder="Write here..."></textarea>
+    <div class="row">
+        <select></select>
+        <button><img src="images/play.png">Listen</button>
+    </div>
+</div>
+
+
+<script>
+let voices = [];//declares an empty array called voices to store the available voices for text-to-speech.
+let voiceSelect= document.querySelector("select");
+/*an event listener for when the available voices change. 
+When the event is triggered (usually when voices are loaded), 
+it populates the voices array with the available voices and 
+sets the default voice to the first one in the array.*/
+window.speechSynthesis.onvoiceschanged=()=>{
+    voices=window.speechSynthesis.getVoices();
+    speech.voice=voices[0];
+
+    voices.forEach((voice,i)=>(voiceSelect.options[i]=new Option(voice.name,i)))
+}
+//speech request 
+let speech = new SpeechSynthesisUtterance();
+voiceSelect.addEventListener("change",()=>{
+    speech.voice= voices[voiceSelect.value];
+})
+
+document.querySelector("button").addEventListener("click", ()=>{
+    speech.text= document.querySelector("textarea").value;
+    window.speechSynthesis.speak(speech);
+
+});
+</script>
+
+
+</body>
+</html>
